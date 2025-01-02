@@ -1,0 +1,178 @@
+Determining if the __GLIBC__ exist failed with the following output:
+Change Dir: C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-y1q5zj
+
+Run Build Command(s):C:/ninja/ninja.exe cmTC_25811 && [1/2] Building C object CMakeFiles/cmTC_25811.dir/CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_25811.dir/CheckSymbolExists.c.obj 
+c:\llvm\bin\clang.exe   -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_25811.dir/CheckSymbolExists.c.obj -MF CMakeFiles\cmTC_25811.dir\CheckSymbolExists.c.obj.d -o CMakeFiles/cmTC_25811.dir/CheckSymbolExists.c.obj -c C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-y1q5zj/CheckSymbolExists.c
+C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-y1q5zj/CheckSymbolExists.c:8:19: error: use of undeclared identifier '__GLIBC__'
+    8 |   return ((int*)(&__GLIBC__))[argc];
+      |                   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __GLIBC__
+  return ((int*)(&__GLIBC__))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test CHECK_CPU_ARCHITECTURE_X86 failed with the following output:
+Change Dir: C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-p8qf0z
+
+Run Build Command(s):C:/ninja/ninja.exe cmTC_0aa2e && [1/2] Building C object CMakeFiles/cmTC_0aa2e.dir/src.c.obj
+FAILED: CMakeFiles/cmTC_0aa2e.dir/src.c.obj 
+c:\llvm\bin\clang.exe -DCHECK_CPU_ARCHITECTURE_X86  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_0aa2e.dir/src.c.obj -MF CMakeFiles\cmTC_0aa2e.dir\src.c.obj.d -o CMakeFiles/cmTC_0aa2e.dir/src.c.obj -c C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-p8qf0z/src.c
+C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-p8qf0z/src.c:6:3: error: use of undeclared identifier 'choke'
+    6 |   choke
+      |   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+int main(int argc, char *argv[]) {
+#if defined(__i386__) || defined(__i486__) || defined(__i586__) || defined(__i686__) ||defined( __i386) || defined(_M_IX86)
+  return 0;
+#else
+  choke
+#endif
+}
+
+
+Performing C SOURCE FILE Test CHECK_CPU_ARCHITECTURE_ARM32 failed with the following output:
+Change Dir: C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-hxukde
+
+Run Build Command(s):C:/ninja/ninja.exe cmTC_c8390 && [1/2] Building C object CMakeFiles/cmTC_c8390.dir/src.c.obj
+FAILED: CMakeFiles/cmTC_c8390.dir/src.c.obj 
+c:\llvm\bin\clang.exe -DCHECK_CPU_ARCHITECTURE_ARM32  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_c8390.dir/src.c.obj -MF CMakeFiles\cmTC_c8390.dir\src.c.obj.d -o CMakeFiles/cmTC_c8390.dir/src.c.obj -c C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-hxukde/src.c
+C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-hxukde/src.c:6:3: error: use of undeclared identifier 'choke'
+    6 |   choke
+      |   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+int main(int argc, char *argv[]) {
+#if defined(__arm__) || defined(_M_ARM)
+  return 0;
+#else
+  choke
+#endif
+}
+
+
+Performing C SOURCE FILE Test CHECK_CPU_ARCHITECTURE_ARM64 failed with the following output:
+Change Dir: C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-kyd8xv
+
+Run Build Command(s):C:/ninja/ninja.exe cmTC_94a56 && [1/2] Building C object CMakeFiles/cmTC_94a56.dir/src.c.obj
+FAILED: CMakeFiles/cmTC_94a56.dir/src.c.obj 
+c:\llvm\bin\clang.exe -DCHECK_CPU_ARCHITECTURE_ARM64  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_94a56.dir/src.c.obj -MF CMakeFiles\cmTC_94a56.dir\src.c.obj.d -o CMakeFiles/cmTC_94a56.dir/src.c.obj -c C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-kyd8xv/src.c
+C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-kyd8xv/src.c:6:3: error: use of undeclared identifier 'choke'
+    6 |   choke
+      |   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+int main(int argc, char *argv[]) {
+#if defined(__aarch64__) || defined(_M_ARM64)
+  return 0;
+#else
+  choke
+#endif
+}
+
+
+Performing C SOURCE FILE Test CHECK_CPU_ARCHITECTURE_LOONGARCH64 failed with the following output:
+Change Dir: C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-1dnkic
+
+Run Build Command(s):C:/ninja/ninja.exe cmTC_6f088 && [1/2] Building C object CMakeFiles/cmTC_6f088.dir/src.c.obj
+FAILED: CMakeFiles/cmTC_6f088.dir/src.c.obj 
+c:\llvm\bin\clang.exe -DCHECK_CPU_ARCHITECTURE_LOONGARCH64  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_6f088.dir/src.c.obj -MF CMakeFiles\cmTC_6f088.dir\src.c.obj.d -o CMakeFiles/cmTC_6f088.dir/src.c.obj -c C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-1dnkic/src.c
+C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-1dnkic/src.c:6:3: error: use of undeclared identifier 'choke'
+    6 |   choke
+      |   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+int main(int argc, char *argv[]) {
+#if defined(__loongarch64)
+  return 0;
+#else
+  choke
+#endif
+}
+
+
+Performing C SOURCE FILE Test HAVE_GCC_FVISIBILITY failed with the following output:
+Change Dir: C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-lcowcp
+
+Run Build Command(s):C:/ninja/ninja.exe cmTC_2c20e && [1/2] Building C object CMakeFiles/cmTC_2c20e.dir/src.c.obj
+FAILED: CMakeFiles/cmTC_2c20e.dir/src.c.obj 
+c:\llvm\bin\clang.exe -DHAVE_GCC_FVISIBILITY  -idirafter "C:/Users/Eli/Documents/pi-launcher/vendored/sdl/src/video/khronos" -fvisibility=hidden -Werror -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_2c20e.dir/src.c.obj -MF CMakeFiles\cmTC_2c20e.dir\src.c.obj.d -o CMakeFiles/cmTC_2c20e.dir/src.c.obj -c C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-lcowcp/src.c
+C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-lcowcp/src.c:3:8: error: SDL only uses visibility attributes in GCC 4 or newer
+    3 |       #error SDL only uses visibility attributes in GCC 4 or newer
+      |        ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+      #if !defined(__GNUC__) || __GNUC__ < 4
+      #error SDL only uses visibility attributes in GCC 4 or newer
+      #endif
+      int main(int argc, char **argv) { return 0; }
+
+Performing C SOURCE FILE Test HAVE_ALTIVEC_H_HDR failed with the following output:
+Change Dir: C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-32c8le
+
+Run Build Command(s):C:/ninja/ninja.exe cmTC_368e9 && [1/2] Building C object CMakeFiles/cmTC_368e9.dir/src.c.obj
+FAILED: CMakeFiles/cmTC_368e9.dir/src.c.obj 
+c:\llvm\bin\clang.exe -DHAVE_ALTIVEC_H_HDR  -idirafter "C:/Users/Eli/Documents/pi-launcher/vendored/sdl/src/video/khronos" -maltivec -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_368e9.dir/src.c.obj -MF CMakeFiles\cmTC_368e9.dir\src.c.obj.d -o CMakeFiles/cmTC_368e9.dir/src.c.obj -c C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-32c8le/src.c
+clang: error: unsupported option '-maltivec' for target 'x86_64-pc-windows-msvc'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+          #include <altivec.h>
+          vector unsigned int vzero() {
+              return vec_splat_u32(0);
+          }
+          int main(int argc, char **argv) { return 0; }
+
+Performing C SOURCE FILE Test CPU_SUPPORTS_ALTIVEC failed with the following output:
+Change Dir: C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-0kkapp
+
+Run Build Command(s):C:/ninja/ninja.exe cmTC_9adb7 && [1/2] Building C object CMakeFiles/cmTC_9adb7.dir/src.c.obj
+FAILED: CMakeFiles/cmTC_9adb7.dir/src.c.obj 
+c:\llvm\bin\clang.exe -DCPU_SUPPORTS_ALTIVEC  -idirafter "C:/Users/Eli/Documents/pi-launcher/vendored/sdl/src/video/khronos" -maltivec -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_9adb7.dir/src.c.obj -MF CMakeFiles\cmTC_9adb7.dir\src.c.obj.d -o CMakeFiles/cmTC_9adb7.dir/src.c.obj -c C:/Users/Eli/Documents/pi-launcher/build/CMakeFiles/CMakeScratch/TryCompile-0kkapp/src.c
+clang: error: unsupported option '-maltivec' for target 'x86_64-pc-windows-msvc'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+          vector unsigned int vzero() {
+              return vec_splat_u32(0);
+          }
+          int main(int argc, char **argv) { return 0; }
+
