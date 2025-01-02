@@ -1,17 +1,39 @@
 #include <SDL.h>
+#include <SDL_image.h>
 #include <stdio.h>
+#include <string>
+
+//The window we'll be rendering to
+SDL_Window* window = NULL;
+
+//The surface contained by the window
+SDL_Surface* screenSurface = NULL;
+
+SDL_Renderer* renderer = NULL;
+
+static SDL_Surface* loadImage(std::string path)
+{
+	SDL_Surface* img = IMG_Load(path.c_str());
+	if (img == NULL)
+	{
+		fprintf(stderr, "could not load image: %s\n", IMG_GetError());
+    	return NULL;
+	}
+
+	SDL_Surface* optimizedImg = SDL_ConvertSurface(img, screenSurface->format, 0);
+	if (optimizedImg == NULL)
+	{
+		 fprintf(stderr, "could not optimize image: %s\n", SDL_GetError());
+	}
+
+	SDL_FreeSurface(img);
+	
+	return optimizedImg;
+}
 
 int main(int argc, char* args[])
 {
-    //The window we'll be rendering to
-	SDL_Window* window = NULL;
-
-	//The surface contained by the window
-	SDL_Surface* screenSurface = NULL;
-
-	SDL_Renderer* renderer = NULL;
-
-	SDL_Event event = { 0 };
+    SDL_Event event = { 0 };
 
 	//Initialize SDL
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) < 0)
@@ -35,9 +57,12 @@ int main(int argc, char* args[])
 		return 1;
 	}
 
-    SDL_SetRenderDrawColor(renderer, 127, 127, 127, 255);
+	SDL_Texture* backgroundTex = IMG_LoadTexture(renderer, "background.png");
+	SDL_Rect texr; texr.x = 0; texr.y = 0; texr.w = 800; texr.h = 480;
 
     SDL_RenderClear(renderer);
+
+	SDL_RenderCopy(renderer, backgroundTex, NULL, &texr);
 
 	SDL_RenderPresent(renderer);
 
@@ -69,10 +94,10 @@ int main(int argc, char* args[])
 		}
 	}
 
-	//Destroy window
+	//Close SDL
+	SDL_DestroyTexture(backgroundTex);
+	SDL_FreeSurface(screenSurface);
 	SDL_DestroyWindow(window);
-
-	//Quit SDL subsystems
 	SDL_Quit();
     
     return 0;
