@@ -11,26 +11,6 @@ SDL_Surface* screenSurface = NULL;
 
 SDL_Renderer* renderer = NULL;
 
-static SDL_Surface* loadImage(std::string path)
-{
-	SDL_Surface* img = IMG_Load(path.c_str());
-	if (img == NULL)
-	{
-		fprintf(stderr, "could not load image: %s\n", IMG_GetError());
-    	return NULL;
-	}
-
-	SDL_Surface* optimizedImg = SDL_ConvertSurface(img, screenSurface->format, 0);
-	if (optimizedImg == NULL)
-	{
-		 fprintf(stderr, "could not optimize image: %s\n", SDL_GetError());
-	}
-
-	SDL_FreeSurface(img);
-	
-	return optimizedImg;
-}
-
 int main(int argc, char* args[])
 {
     SDL_Event event = { 0 };
